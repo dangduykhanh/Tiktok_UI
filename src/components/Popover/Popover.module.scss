@@ -1,0 +1,18 @@
+.wrapper {
+  width: 100%;
+  max-height: min((100vh - 96px) - 60px, 734px);
+  min-height: 100px;
+  padding-top: 8px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: rgb(0 0 0 / 12%) 0px 2px 12px;
+  border-radius: 8px;
+  overflow: hidden auto;
+  /* Hide scrollbar for IE, Edge and Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
