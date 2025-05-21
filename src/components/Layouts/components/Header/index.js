@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 
 import PopoverWrapper from '~/components/Popover/WrapperPopover';
 import AccountItem from '~/components/AccountItem';
+import Button from '~/components/Button';
 import styles from './Header.module.scss';
 import images from '~/assets/images';
 
@@ -15,9 +16,10 @@ function Header() {
   const [searchResult, setSearchResult] = useState([]);
   useEffect(() => {
     setTimeout(() => {
-      setSearchResult([1]);
+      setSearchResult([]);
     }, 0);
-  });
+  }, []);
+
   return (
     <header className={cx('wrapper')}>
       <div className={cx('inner')}>
@@ -54,7 +56,15 @@ function Header() {
           </div>
         </Tippy>
 
-        <div className={cx('actions')}></div>
+        <div className={cx('actions')}>
+          <Button text to="./upload">
+            Upload
+          </Button>
+
+          <Button primary>Log In</Button>
+
+          {/* <Button rounded className={cx('custom-login')}>  Get App  </Button> */}
+        </div>
       </div>
     </header>
   );
