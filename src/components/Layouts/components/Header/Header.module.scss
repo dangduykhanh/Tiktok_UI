@@ -19,6 +19,7 @@
   width: var(--default-layout-width);
 }
 
+// Search
 .search,
 .search-result {
   width: 361px;
@@ -101,6 +102,15 @@
   }
 }
 
+// Action
+
 // .custom-login {
 //   color: #515151;
 // }
+
+.more-btn {
+  font-size: 2rem;
+  margin-left: 28px;
+  padding: 4px 8px;
+  background-color: transparent;
+}
