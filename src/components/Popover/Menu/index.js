@@ -40,6 +40,7 @@ function Menu({ children, items = [], onChange = defaultFn }) {
       delay={[0, 700]}
       interactive
       placement="bottom-end"
+      offset={[14, 10]}
       render={(attrs) => {
         return (
           <div className={cx('menu-list')} tabIndex="-1" {...attrs}>
@@ -54,6 +55,9 @@ function Menu({ children, items = [], onChange = defaultFn }) {
             </PopoverWrapper>
           </div>
         );
+      }}
+      onHide={() => {
+        setHistory((pre) => pre.slice(0, 1));
       }}
     >
       {children}

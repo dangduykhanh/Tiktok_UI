@@ -1,9 +1,9 @@
 @import 'normalize.css';
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap');
 
 :root {
   --primary-color: #ff3b5c;
-  --text-color: #333;
+  --text-color: #161823;
   --white-color: #fff;
 
   // Default layout
@@ -15,19 +15,21 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  box-sizing: inherit;
 }
 
 html {
   font-size: 62.5%;
+  line-height: 1.5;
+  box-sizing: border-box;
+  color: var(--text-color);
+  font-family: 'Montserrat', sans-serif;
+  text-rendering: optimizespeed;
+  font-optical-sizing: auto;
 }
 
 body {
-  font-family: 'Montserrat', sans-serif;
-  text-rendering: optimizespeed;
   font-size: 1.6rem;
-  line-height: 1.5;
-  color: var(--text-color);
 }
 
 button,
@@ -40,4 +42,32 @@ input,
 a[href] {
   color: var(--text-color);
   text-decoration: none;
+}
+
+button {
+  background-color: transparent;
+}
+
+// Custom tippy tooltip
+
+body {
+  .tippy-box {
+    font-size: 1.6rem;
+    font-weight: 600;
+    line-height: 2.2rem;
+    border-radius: 8px;
+    background-color: #545454;
+  }
+
+  .tippy-arrow {
+    color: #545454;
+  }
+
+  .tippy-content {
+    padding: 8px 9px;
+  }
+
+  .tippy-box[data-placement^='bottom'] > .tippy-arrow:before {
+    top: -8;
+  }
 }
