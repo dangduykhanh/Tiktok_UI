@@ -1,5 +1,5 @@
 @import 'normalize.css';
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap');
 
 :root {
   --primary-color: #ff3b5c;
@@ -10,6 +10,10 @@
   --default-layout-header-height: 60px;
   --default-layout-width: 1150px;
   --default-layout-horizontal-spacer: 24px;
+
+  // Font family
+  --font-Family-Heading: 'TikTokDisplayFont', Arial, sans-serif;
+  --font-Family-Paragraph: 'TikTokFont', Arial, sans-serif;
 }
 
 * {
@@ -23,9 +27,8 @@ html {
   line-height: 1.5;
   box-sizing: border-box;
   color: var(--text-color);
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'IBM Plex Sans', 'TikTokFont', 'Arial', sans-serif;
   text-rendering: optimizespeed;
-  font-optical-sizing: auto;
 }
 
 body {
@@ -46,6 +49,31 @@ a[href] {
 
 button {
   background-color: transparent;
+}
+
+// Fonts embedded
+@font-face {
+  font-family: TikTokFont;
+  src: url('/assets/fonts/TikTokFont-Regular.woff2');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: TikTokFont;
+  src: url('/assets/fonts/TikTokFont-Semibold.woff2');
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: TikTokFont;
+  src: url('/assets/fonts/TikTokFont-Bold.woff2');
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: TikTokDisplayFont;
+  src: url('/assets/fonts/TikTokDisplayFont-Bold.woff2');
+  font-weight: 700;
 }
 
 // Custom tippy tooltip

@@ -7,7 +7,7 @@
   padding: 9px 16px;
   border-radius: 4px;
   font-size: 1.6rem;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'IBM Plex Sans', sans-serif;
   font-weight: 700;
   cursor: pointer;
   background-color: var(--white-color);
@@ -30,9 +30,9 @@
 }
 
 .icon {
-  display: inline-block;
+  display: flex;
+  justify-content: center;
   width: 20px;
-  text-align: center;
 }
 
 // button types
