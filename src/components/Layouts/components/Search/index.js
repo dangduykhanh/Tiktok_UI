@@ -15,14 +15,32 @@ function Search() {
   const [searchResult, setSearchResult] = useState([]);
   const [searchValue, setSearchValue] = useState('');
   const [showResult, setShowResult] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   const inputRef = useRef();
 
   useEffect(() => {
-    setTimeout(() => {
-      setSearchResult([1, 2, 3]);
-    }, 0);
-  }, []);
+    if (!searchValue.trim()) {
+      setSearchResult([]);
+      return;
+    }
+    setLoading(true);
+
+    const params = new URLSearchParams();
+    params.append('q', encodeURIComponent(searchValue));
+    params.append('type', 'less');
+
+    fetch(`https://tiktok.fullstack.edu.vn/api/users/search?${params}`)
+      .then((res) => res.json())
+      .then((res) => {
+        setSearchResult(res.data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        setLoading(false);
+        console.log(error);
+      });
+  }, [searchValue]);
 
   const handleClear = () => {
     setSearchValue('');
@@ -44,10 +62,9 @@ function Search() {
           <div className={cx('search-result')} tabIndex="-1" {...attrs}>
             <PopoverWrapper>
               <h4 className={cx('search-title')}>Accounts</h4>
-              <AccountItem />
-              <AccountItem />
-              <AccountItem />
-              <AccountItem />
+              {searchResult.map((result) => (
+                <AccountItem key={result.id} data={result} />
+              ))}
             </PopoverWrapper>
           </div>
         );
@@ -68,13 +85,15 @@ function Search() {
           }}
         />
 
-        {!!searchValue && (
+        {!!searchValue && !loading && (
           <button className={cx('clear')} onClick={handleClear}>
             <FontAwesomeIcon icon={faCircleXmark} />
           </button>
         )}
 
-        {/* <FontAwesomeIcon className={cx('loading')} icon={faSpinner} /> */}
+        {loading && (
+          <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />
+        )}
 
         <button className={cx('search-btn')}>
           <MagnifyingGlassIcon />

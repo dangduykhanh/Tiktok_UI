@@ -13,17 +13,14 @@ const publicRoutes = [
     path: '/',
     component: Home,
   },
-
   {
     path: '/following',
     component: Following,
   },
-
   {
-    path: '/profile',
+    path: '/:nickname',
     component: Profile,
   },
-
   {
     path: '/upload',
     component: Upload,

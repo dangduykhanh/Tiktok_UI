@@ -156,7 +156,6 @@ export const SignoutIcon = (className, width = '2rem', height = '2rem') => (
 );
 
 // Search Icon
-
 export const MagnifyingGlassIcon = (className, width = '2.4rem', height = '2.4rem') => (
   <svg
     className={className}
